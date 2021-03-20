@@ -4,9 +4,14 @@
     height: 100%;
     position: relative;
     .tracker-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
         padding: 10px 20px;
         .menu {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             justify-content: space-between;
             align-items: center;
             
@@ -17,9 +22,11 @@
             }
             >p {
                 font-size: 3rem;
-                color: $primary;
+                color: $primary !important;
                 font-weight: bold;
                 cursor: pointer;
+                justify-self: flex-end;
+                margin-right: 30px;
             }
         }
         .selected-car {
@@ -32,7 +39,7 @@
         grid-auto-flow: column;
         position: absolute;
         gap: 12px;
-        bottom: 10px;
+        bottom: 0;
         right: 0;
         left: 0;
         overflow-x: scroll;

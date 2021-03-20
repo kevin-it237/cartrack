@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Button from '../../../app/components/buttons/button/button'
 import Car from '../components/car/car'
 import Modal from '../../../app/components/modal/modal'
+import GoogleMapReact from 'google-map-react';
 import './tracker.scss'
 
 const Tracker = () => {
@@ -12,19 +13,31 @@ const Tracker = () => {
         moduleId: "", 
     })
     const [newCarModal, setNewCarModal] = useState(false)
-    const [addNumberModal, setAddNumberModal] = useState(true)
+    const [addNumberModal, setAddNumberModal] = useState(false)
 
     const closeModal = () => {
         setNewCarModal(false)
         setAddNumberModal(false)
     }
 
-      // Change form input values. 
-      const onChange = (e) => setProfileForm({...profileForm,  [e.target.name]: e.target.value })
+    // Change form input values. 
+    const onChange = (e) => setProfileForm({...profileForm,  [e.target.name]: e.target.value })
+
+    const defaultProps = {lat: 3.844119, lng: 11.501346}
+
+    const selectCar = (car) => {
+        console.log(car)
+    }
 
     return (
         <>
         <div id="tracker">
+            {/* Uncomment the map */}
+            {/* <GoogleMapReact
+                defaultCenter={defaultProps}
+                defaultZoom={15}
+            >
+            </GoogleMapReact> */}
             <div className="tracker-header">
                 <div className="menu">
                     <h3>{selectedCar || 'Select a car'}</h3>
@@ -36,9 +49,10 @@ const Tracker = () => {
             </div>
 
             <div className="tracker-cars--list">
-                <Car />
-                <Car />
-                <Car />
+                <Car selectCar={() => selectCar()} />
+                <Car selectCar={() => selectCar()} />
+                <Car selectCar={() => selectCar()} />
+                <Car selectCar={() => selectCar()} />
             </div>
         </div>
 
