@@ -1,0 +1,108 @@
+@import '../../../assets/styles/global.scss';
+
+#tracker {
+    height: 100%;
+    position: relative;
+    .tracker-header {
+        padding: 10px 20px;
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+            >h3 {
+                font-size: 1.8rem;
+                color: $primary;
+                font-weight: bold;
+            }
+            >p {
+                font-size: 3rem;
+                color: $primary;
+                font-weight: bold;
+                cursor: pointer;
+            }
+        }
+        .selected-car {
+            margin-top: 6px;
+        }
+    }
+    >.tracker-cars--list {
+        display: grid;
+        justify-content: flex-start;
+        grid-auto-flow: column;
+        position: absolute;
+        gap: 12px;
+        bottom: 10px;
+        right: 0;
+        left: 0;
+        overflow-x: scroll;
+        padding: 8px 15px;
+    }
+}
+
+.form-container__card {
+    .auth-container__input-container {
+        display: grid;
+        gap: 10px;
+
+    }
+    h2 {
+        font-size: 1.7rem;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+    input {
+        margin-top: 10px;
+    }
+
+    .modal-header {
+        padding: 10px 0;
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            
+            >h3 {
+                font-size: 1.8rem;
+                color: $primary;
+                font-weight: bold;
+            }
+            >p {
+                font-size: 3rem;
+                color: $primary;
+                font-weight: bold;
+                cursor: pointer;
+            }
+        }
+    }
+    .numbers--list {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        .number--item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            &:not(:last-child) {
+                border-bottom: solid 1px $stroke-color;
+            }
+            p {
+                font-size: 1.4rem;
+                font-weight: bold;
+            }
+            .remove--btn {
+                width: 22px;
+                height: 22px;
+                background-color: $danger;
+                border-radius: 50%;
+                color: $white;
+                display: flex;
+                font-size: 1.6rem;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+}

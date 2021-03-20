@@ -1,0 +1,42 @@
+@import '../../../assets/styles/global.scss';
+
+#layout {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    #content {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        flex: 1;
+    }
+
+    #footer {
+        height: 80px;
+        border-top: solid 1px rgba($primary, .07);
+        .footer-buttons {
+            display: grid;
+            grid-template-rows: 1fr;
+            grid-template-columns: 50% 50%;
+            height: 100%;
+            width: 100%;
+            .button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.6rem;
+                font-weight: bold;
+                height: 100%;
+                cursor: pointer;
+            }
+            .btn-1 {
+                background-color: $white;
+                color: $primary;
+            }
+            .btn-2 {
+                clip-path: polygon(8% 0, 100% 0%, 100% 100%, 8% 100%, 0% 50%);
+                background-color: $primary;
+                color: $white;
+            }
+        }
+    }
+}

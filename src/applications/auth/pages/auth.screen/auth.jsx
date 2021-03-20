@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, connect } from 'react-redux';
-import useError from '../../hooks/useError';
 import {useHistory} from 'react-router-dom'
-import useRedirect from '../../hooks/useRedirect';
-import { authSignIn, authRegister} from '../../redux/reducer/actions';
 import { ReactComponent as Eye } from '../../../../assets/icons/eye.svg';
 import { ReactComponent as Uneye } from '../../../../assets/icons/uneye.svg';
 import Button from '../../../../app/components/buttons/button/button';
@@ -11,7 +8,7 @@ import carImg from '../../../../assets/images/car.png'
 import './auth.screen.scss'
 
 
-const Login = ({ error, redirect, user }) => {
+const Login = () => {
     const history = useHistory()
     const dispatch= useDispatch()
 
@@ -22,44 +19,19 @@ const Login = ({ error, redirect, user }) => {
     const [isLoginForm, setIsLoginForm] = useState(true);
     const [formError, setformError] = useState(null)
 
-    useEffect(() => {
-        if(user) {
-            history.push('/')
-        }
-    }, [])
 
     const onSubmit = (e) => {
         e.preventDefault();
         if (submited) { return }
         if(isLoginForm) {
-            dispatch(authSignIn({...loginForm, redirect: history.location.state?.pathname || '/'}));
+            // Login
         } else {
-            if(validateForm() ) {
-                dispatch(authRegister({...registerForm, redirect: history.location.state?.pathname || '/'}))
-                setformError(null)
-            } else {
-                return;
-            }
+            // Signup
+            setformError(null)
         }
         setSubmited(true);
     }
 
-    const validateForm = () => {
-        const {username, password} = registerForm
-        if(username.trim().length < 5) {
-            setformError('Username min length is 5 caracters')
-            return false
-        }
-        if(password.trim().length < 6) {
-            setformError('Password min length is 6 caracters')
-            return false
-        }
-        if(registerForm.password !== registerForm.confirmation) {
-            setformError('Passwords dont match')
-            return false
-        }
-        return true
-    }
     
     // Change form input values. 
     const onChange = (e) => setLoginForm({...loginForm,  [e.target.name]: e.target.value })
@@ -67,9 +39,6 @@ const Login = ({ error, redirect, user }) => {
         setRegisterForm({...registerForm,  [e.target.name]: e.target.value })
         setformError(null)
     }
-
-    useError(error, [() => setSubmited(false)]); 
-    useRedirect(redirect);
 
     return (
         <div className="auth-container">
@@ -126,8 +95,6 @@ const Login = ({ error, redirect, user }) => {
                         })}
                     </>
                 }
-
-                {error&&<div className="error-box"><p className="error-text">{error.message}</p></div>}
                 {formError&&<div className="error-box"><p className="error-text">{formError}</p></div>}
 
                 <Button 
@@ -149,9 +116,5 @@ const Login = ({ error, redirect, user }) => {
         </div>)
 }
 
-const mapStateToProps = ({ AuthReducer }) => ({
-    redirect: AuthReducer.redirect,
-    error: AuthReducer.error,
-    user: AuthReducer.user
-})
-export default connect(mapStateToProps)(Login);
+
+export default Login;

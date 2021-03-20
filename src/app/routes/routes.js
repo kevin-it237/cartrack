@@ -4,7 +4,10 @@ import {connect} from 'react-redux'
 import PrivateRoute from './private.route';
 import NormalRoute from './normal.route';
 
+import Layout from '../components/layout/layout'
 import AuthScreen from '../../applications/auth/pages/auth.screen/auth'
+import UserProfile from '../../applications/auth/pages/auth.profile/auth.profile'
+import ResetPassword from '../../applications/auth/pages/auth.profile/auth.resetpassword.jsx'
 import Tracker from '../../applications/tracker/pages/tracker'
 
 /**
@@ -16,10 +19,12 @@ const Routes = () => {
         <Switch>
             {/* Private routes here */}
             <PrivateRoute exact path={"/"}>
+            <Layout>
                 <Route 
                     exact 
                     component={Tracker}
                     path={"/"} />
+            </Layout>
             </PrivateRoute>
             
             {/* Normal routes here */}
@@ -28,6 +33,21 @@ const Routes = () => {
                     exact
                     component={AuthScreen}
                     path={'/auth'} />
+                
+                <Layout>
+                    <Route 
+                        exact
+                        component={UserProfile}
+                        path={'/profile'} />
+                    <Route 
+                        exact
+                        component={ResetPassword}
+                        path={'/reset'} />
+                    <Route 
+                        exact
+                        component={Tracker}
+                        path={'/tracker'} />
+                </Layout>
             </NormalRoute>
 
         </Switch>)
