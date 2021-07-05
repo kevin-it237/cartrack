@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import InputSearch from "../../../../app/components/inputs/input.search/input.search";
 import ProductItem from '../../components/product.item/product.item';
 import './home.scss' 
@@ -42,14 +41,12 @@ const Home = () => {
                 <ProductItem />
                 <ProductItem />
                 <ProductItem />
+                <ProductItem />
+                <ProductItem />
             </div>
         </div>
     )
   
 }
 
-const mapStateToProps = ({}) =>({
-    
-})
-
-export default connect(mapStateToProps)(Home);
+export default Home;

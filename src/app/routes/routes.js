@@ -11,6 +11,8 @@ import SignUp from '../../applications/auth/pages/signup/signup'
 
 import Layout from '../components/layout/layout';
 import Home from '../../applications/shop/pages/home/home'
+import Search from '../../applications/shop/pages/search/search'
+import Cart from '../../applications/shop/pages/cart/cart'
 
 /**
  * @description this is the main routes for the main application src/app. 
@@ -31,8 +33,11 @@ const Routes = () => {
                 <Route exact={true} component={Login} path={'/login'} />
                 <Route exact={true} component={SignUp} path={'/signup'} />
                 
+                <Route exact={true} component={Cart} path={'/cart'} />
+                
                 <Layout>
                     <Route exact={true} component={Home} path={'/home'} />
+                    <Route exact={true} component={Search} path={'/search'} />
                 </Layout>
             </NormalRoute>
 
