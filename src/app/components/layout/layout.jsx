@@ -1,6 +1,13 @@
 import React from 'react'
-import {useHistory} from 'react-router-dom'
+import { useHistory, NavLink } from 'react-router-dom'
 import './layout.scss'
+import Home from "../../../assets/icons/home.svg"
+import Chat from "../../../assets/icons/chat.svg"
+import Search from "../../../assets/icons/search.svg"
+import Document from "../../../assets/icons/documents.svg"
+import UserAccount from "../../../assets/icons/user_account.svg"
+import Menu from "../../../assets/icons/menu.svg"
+import avatar from "../../../assets/images/avatar.png"
 
 const Layout = ({children}) => {
     const history = useHistory()
@@ -14,14 +21,19 @@ const Layout = ({children}) => {
 
     return (
         <div id="layout">
+            <div id="header">
+                <img className="menu" src={Menu} alt="" />
+                <img className="avatar" src={avatar} alt="" />
+            </div>
             <div id="content">
                 {children}
             </div>
             <div id="footer">
-                <div className="footer-buttons">
-                    <div onClick={goAccount} className="button btn-1">ACCOUNT</div>
-                    <div onClick={goToTracker} className="button btn-2">TRACKING</div>
-                </div>
+                <NavLink to="/home"><img src={Home} alt="" /></NavLink>
+                <NavLink to="/chat"><img src={Chat} alt="" /></NavLink>
+                <NavLink to="/search"><img src={Search} alt="" /></NavLink>
+                <NavLink to="/documents"><img src={Document} alt="" /></NavLink>
+                <NavLink to="/account"><img src={UserAccount} alt="" /></NavLink>
             </div>
         </div>
     )

@@ -1,17 +1,8 @@
-/*
-
-  Color Variable
-
-*/
-
-
 // Primary colors
-$primary:           #212121;
-$secondary:         #555555;
+$primary:           #6B0C72;
+$font:              #707070;
 
 $white:             #fff;
-
-$blue: $primary;
 
 $success:           #5DD150;
 $danger:            #FF5A5A;
@@ -19,7 +10,9 @@ $warning:           #FFDA34;
 $info:               $primary;
 
 //background colors 
-$bg-light: #FDFDFD;
+$bg-light:        #FDFDFD;
+
+$secondary:       #707070;
 
 // Greys
 $grey-100:          #FAFAFA;
@@ -31,7 +24,7 @@ $grey-500:          #555555;
 // Stroke Colors
 $stroke-color:      $grey-200;
 
-$bg-body: #F7F7F7;
+$bg-body: #EEEEF3;
 
 
 $bg-colors: (

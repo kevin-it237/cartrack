@@ -15,7 +15,7 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    padding: 12px 30px !important;
+    padding: 10px 30px !important;
     border-radius: 5px;
     gap: 5px;
     border: 1px solid transparent;
@@ -28,9 +28,8 @@
     -webkit-user-select: none;
     -o-user-select: none;
     width: 100%;
-    margin: 25px auto;
+    margin: 5px auto;
     background-color: $primary;
-    padding: 5px 70px;
     color: $white;
     font-family: "Poppins Medium", sans-serif;
     font-size: 16px;
@@ -65,6 +64,20 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    } 
+
+    &.btn-rounded{
+        border-radius: 50%;
+    } 
+
+    &.btn-disabled {
+        background-color: $secondary;
+    } 
+
+    &.btn-white {
+        background-color: $white;
+        color: $secondary;
+        box-shadow: 0px 0px 8px rgba($secondary, .2);
     } 
 
     &.btn-xxl{

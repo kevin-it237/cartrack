@@ -16,18 +16,21 @@ const Button = ({
     variant="default",
     loading, 
     border = true, 
+    white,
     outline, 
     size, 
     className,
-    disabled, 
+    disabled = false, 
     onClick, 
-    rounded = true,
+    rounded = false,
     ...rest}) =>
 {
     return (
     <button {...rest} onClick={onClick} disabled={disabled || loading}
         className={`btn ${actived ? 'actived': ''} ${loading ? 'btn-loading': ''} ${!border ? 'btn-no-border': ''}
                     btn-${variant} ${variant ? '' : 'btn-default' } 
+                    ${disabled ? 'btn-disabled' : '' } 
+                    ${white ? 'btn-white' : '' } 
                     ${outline ? 'btn-outline': ''} 
                     ${size ? `btn-${size}` : ''}
                     ${className ? className : ''}

@@ -7,7 +7,7 @@ import { Route, Redirect } from 'react-router-dom';
  */
 const PrivateRoute = ({user, children, path, component, ...rest}) => {
 
-    if(!user) {  return <Redirect to="/auth" /> }
+    if(!user) {  return <Redirect to="/welcome" /> }
     return (
         <Route 
             exact 
